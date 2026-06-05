@@ -82,14 +82,25 @@ g++ -std=c++20 main.cpp -o wasm_spider
 ./wasm_spider
 ```
 
-## Пример вывода в консоль заранее готового паука из кода
+## Пример вывода в консоль (Первый паук из исходника, а также ввод пользовательского паука прямо в консоль)
+
 ```text
 Wasm-Spider
         Name this spider is Webby
         Sex-Pol Male
         Spider x and y 4.5-5.2
         Spider age 1
-
+Create your own spider:
+Enter spider name: Ed
+Enter spider sex: Male
+Enter spider width (x): 10.8
+Enter spider height (y): 18.5
+Enter spider age: 4
+Your spider info:
+        Name this spider is Ed
+        Sex-Pol Male
+        Spider x and y 10.8-18.5
+        Spider age 4
 ```
 
 ---
