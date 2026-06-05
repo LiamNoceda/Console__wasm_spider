@@ -13,9 +13,10 @@
 - пол
 - ширина и длина паука с учетом ног.
 
-# Пример ввывода
+# Пример ввывода в консоль
 
-```Wasm-Spider
+```
+Wasm-Spider
         Name this spider is Ed
         Sex-Pol Male
         Spider x and y 4.5-5
