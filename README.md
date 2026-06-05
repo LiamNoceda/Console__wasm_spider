@@ -15,8 +15,9 @@
 
 # Пример ввывода
 
-Wasm-Spider
+```Wasm-Spider
         Name this spider is Ed
         Sex-Pol Male
         Spider x and y 4.5-5
         Spider age 1
+```
