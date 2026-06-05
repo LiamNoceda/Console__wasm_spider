@@ -82,13 +82,14 @@ g++ -std=c++20 main.cpp -o wasm_spider
 ./wasm_spider
 ```
 
-## Пример вывода в консоль
+## Пример вывода в консоль заранее готового паука из кода
 ```text
 Wasm-Spider
         Name this spider is Webby
         Sex-Pol Male
         Spider x and y 4.5-5.2
         Spider age 1
+
 ```
 
 ---
