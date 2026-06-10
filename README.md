@@ -4,7 +4,7 @@
 
 ## Профессиональные навыки, продемонстрированные в проекте
 
-1. **Модульная архитектура (Многофайловая структура)**: Разделение кодовой базы на заголовочный файл (`spider.hpp`) с объявлением структуры и функций, файл реализации бизнес-логики (`spider_fun.cpp`) и точку входа (`main.cpp`). Это демонстрирует навык организации крупных проектов.
+1. **Модульная архитектура (Многофайловая структура)**: Разделение кодовой базы на заголовочный файл (`spider.hpp`) с объявлением структуры, файл реализации бизнес-логики (`spider_fun.cpp`) и точку входа (`main.cpp`). Это демонстрирует навык организации и масштабирования проектов.
 2. **Designated Initializers (C++20)**: Применение назначенной инициализации для наглядного, безопасного и явного заполнения полей структуры по их именам.
 3. **Оптимизация передачи данных**: Передача сложных объектов в функции по константной ссылке (`const Spider&`) для исключения накладных расходов на копирование строк и экономии системных ресурсов.
 4. **Агрегатные типы данных**: Проектирование легковесных структур с инициализацией полей по умолчанию для предотвращения появления неинициализированной памяти.
@@ -20,10 +20,95 @@
 - Ширина и длина с учетом ног (x, y)
 - Возраст (age)
 
-## Структура проекта
-- `spider.hpp` — Объявление структуры Spider и прототипов функций управления.
-- `spider_fun.cpp` — Реализация функций ввода и вывода данных паука.
-- `main.cpp` — Точка входа в программу, инициализация объектов и запуск сценария.
+---
+
+## Исходный код проекта по модулям
+
+### spider.hpp
+```cpp
+#pragma once
+#include <string>
+
+// Структура для представления паука
+struct Spider {
+    std::string sex{"Unknown"};
+    double x{0.0};
+    double y{0.0};
+    int age{0};
+    std::string name{"NoName"};
+};
+```
+
+### spider_fun.cpp
+```cpp
+#include "spider.hpp"
+#include <iostream>
+
+// Функция для печати информации о пауке
+void print_spider_info(const Spider& spider) {
+    std::cout << "\tName this spider is " << spider.name << "\n";
+    std::cout << "\tSex-Pol " << spider.sex << "\n";
+    std::cout << "\tSpider x and y " << spider.x << " - " << spider.y << "\n";
+    std::cout << "\tSpider age " << spider.age << "\n";
+}
+
+// Процесс создания пользовательского паука
+Spider create_user_spider() {
+    Spider user_spider;
+    std::cout << "\nCreate your own spider:\n";
+
+    std::cout << "\tEnter spider name: ";
+    std::cin >> user_spider.name;
+
+    std::cout << "\tEnter spider sex: ";
+    std::cin >> user_spider.sex;
+
+    std::cout << "\tEnter spider width (x): ";
+    std::cin >> user_spider.x;
+
+    std::cout << "\tEnter spider height (y): ";
+    std::cin >> user_spider.y;
+
+    std::cout << "\tEnter spider age: ";
+    std::cin >> user_spider.age;
+
+    return user_spider;
+} 
+```
+
+### main.cpp
+```cpp
+#include <iostream>
+#include "spider.hpp"
+
+// Объявдяем функции из spider_fun
+void print_spider_info(const Spider& spider);
+Spider create_user_spider();
+
+int main() {
+    std::cout << "Wasm-Spider\n";
+
+    //Мой первый паук, который созданный в коде
+    Spider wasm_spider{
+        .sex = "Male",
+        .x = 4.5,
+        .y = 5.2,
+        .age = 1,
+        .name = "Webby"
+    };
+    print_spider_info(wasm_spider);
+
+    // Создание пользовательского паука с помощью ввода данных
+    Spider user_spider = create_user_spider();
+
+    std::cout << "\nYour spider info:\n";
+    print_spider_info(user_spider);
+
+    return 0;
+}
+```
+
+---
 
 ## Как скомпилировать и запустить
 
@@ -59,5 +144,3 @@ Your spider info:
         Spider x and y 10.2 - 18.8
         Spider age 8
 ```
-
----
