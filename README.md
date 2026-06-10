@@ -86,7 +86,7 @@ int main() {
 
 ```bash
 # Компиляция (флаг -std=c++20 обязателен)
-g++ -std=c++20 main.cpp -o wasm_spider
+g++ -std=c++20 main.cpp spider_fun.cpp -o wasm_spider
 
 # Запуск программы
 ./wasm_spider
